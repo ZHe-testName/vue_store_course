@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <h1>helo vue</h1>
-    <hr>
-    
     <MainWrapper />
   </div>
 </template>

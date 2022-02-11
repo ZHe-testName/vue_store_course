@@ -1,11 +1,5 @@
 <template>
     <div class="main_wrapper">
-        <h1>
-            {{title}}
-        </h1>
-
-        <hr>
-
         <Catalog />
         <Cart />
     </div>
@@ -19,11 +13,8 @@ export default {
     name: 'MainWrapper',
     data (){
         return {
-            title: "Hello, I am alive!!!"
+           
         };
-    },
-    mounted(){
-        console.log('I am already mounted');
     },
     components: {
         Catalog,

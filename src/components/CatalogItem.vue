@@ -38,8 +38,7 @@
         flex-direction: column;
         align-items: center;
         flex-basis: 25%;
-        height: 140px;
-        box-shadow: 0px 0px 2px 5px lightblue;
+        box-shadow: 0px 0px 11px 1px lightblue;
         padding: 15px;
         margin-bottom: 20px;
     }
@@ -47,5 +46,10 @@
     button{
         width: 90px;
         background-color: tomato;
+    }
+
+    img{
+        width: 190px;
+        height: 250px;
     }
 </style>
