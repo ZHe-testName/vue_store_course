@@ -23,6 +23,18 @@ const store = new Vuex.Store({
             state.products = products;
         },
         SET_TO_CART: (state, product) => {
+            if (state.cart.some(el => el.id === product.id)){
+                state.cart = state.cart.map(item => {
+                    if (item.id === product.id){
+                        item.quantity++;
+                    }
+
+                    return item;
+                });
+
+                return;
+            }
+
             state.cart.push(product);
         },
         DELETE_CART_ITEM_FROM_CART: (state, itemId) => {
