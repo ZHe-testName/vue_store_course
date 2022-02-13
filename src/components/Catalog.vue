@@ -1,5 +1,12 @@
 <template>
     <section>
+            <div class="cart_link">
+                <router-link :to="{name: 'cart', params: {cart_data: CART}}">
+                    <span>
+                        Cart: {{CART.length}}
+                    </span>
+                </router-link>
+            </div>
            <h2>
                 CATALOG
             </h2>
@@ -35,6 +42,7 @@
         computed: {
             ...mapGetters([
                 'PRODUCTS',
+                'CART'
             ]),
         },
         methods: {
@@ -65,5 +73,13 @@
         align-items: center;
         width: 1000px;
         margin-top: 25px;
+    }
+
+    .cart_link{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 20px;
+        border: 1px solid black;
     }
 </style>

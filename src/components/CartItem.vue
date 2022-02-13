@@ -12,11 +12,24 @@
         </div>
 
         <span class="item_quantity">
-            <span>
-                Qty.
+            <span 
+                class="controls"
+                @click="increment"
+                >
+                +
             </span>
 
-            {{card_item_data.quantity}}
+            <span>
+                Qty.
+                {{card_item_data.quantity}}
+            </span>
+
+            <span 
+                class="controls"
+                @click="decrement"
+                >
+                -
+            </span>
         </span>
 
         <button
@@ -49,7 +62,13 @@
         },
         methods: {
             deleteCardItem() {
-                this.$emit('deleteCardItem', this.card_item_data.id);
+                this.$emit('deleteCardItem');
+            },
+            increment() {
+                this.$emit('increment');
+            },
+            decrement() {
+                this.$emit('decrement');
             },
         },
     }
@@ -72,5 +91,14 @@
     .image{
         width: 80px;
         height: 85px;
+    }
+
+    .controls{
+        width: 15px;
+        height: 15px;
+        display: block;
+        background-color: beige;
+        margin: 10px auto;
+        cursor: pointer;
     }
 </style>

@@ -12,7 +12,7 @@
         name: "CatalogItem",
         data() {
             return {
-                id: 'idshechka',
+                
             };
         },
         props: {
