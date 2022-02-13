@@ -9,6 +9,7 @@ const store = new Vuex.Store({
     //хранение переменных состояния
     state: {
         products: [],
+        cart: [],
     },
     //тут описиваются мутации стейта
     //здесь все операции синхронны
@@ -20,6 +21,12 @@ const store = new Vuex.Store({
         //вторым то что мы передаем в actions
         SET_PRODUCTS_TO_STATE: (state, products) => {
             state.products = products;
+        },
+        SET_TO_CART: (state, product) => {
+            state.cart.push(product);
+        },
+        DELETE_CART_ITEM_FROM_CART: (state, itemId) => {
+            state.cart = state.cart.filter(i => i.id !== itemId);
         },
     },
     //экшены асинхронны они не блокируют поток
@@ -44,13 +51,24 @@ const store = new Vuex.Store({
                 return e;
             });
         },
+        ADD_TO_CART({commit}, product) {
+            commit('SET_TO_CART', product);
+        },
+        DELETE_CARD_ITEM({commit}, itemId) {
+            commit('DELETE_CART_ITEM_FROM_CART', itemId)
+        },
     },
     //здесь мы можем получить информацию о данных в стейте
     getters: {
         PRODUCTS(state) {
             return state.products;
         },
+        CART(state) {
+            return state.cart;
+        },
     },
 });
+
+window.myStore = store.state;
 
 export default store;

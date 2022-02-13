@@ -3,7 +3,7 @@
         <img :src=" require(`../imgs/${product_data.image}`) " alt="img">
         <p>{{product_data.name}}</p>
         <p>{{product_data.price}}</p>
-        <button @click="sendDataToParent">Add to cart</button>
+        <button @click="addToCart">Add to cart</button>
     </div>
 </template>
 
@@ -25,8 +25,8 @@
             }
         },
         methods: {
-            sendDataToParent(){
-                this.$emit('sendId', this.id);
+            addToCart(){
+                this.$emit('addToCart', this.product_data);
             },
         },
     }

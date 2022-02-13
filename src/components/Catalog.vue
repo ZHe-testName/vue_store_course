@@ -10,6 +10,7 @@
                     v-for="prod in PRODUCTS"
                     :key="prod.id"
                     :product_data="prod"
+                    @addToCart="addToCart"
                 />
             </div>
     </section>
@@ -31,15 +32,19 @@
         components: {
             CatalogItem,
         },
-        methods: {
-            ...mapActions([
-                'GET_PRODUCTS_FROM_API'
-            ]),
-        },
         computed: {
             ...mapGetters([
                 'PRODUCTS',
             ]),
+        },
+        methods: {
+            ...mapActions([
+                'ADD_TO_CART',
+                'GET_PRODUCTS_FROM_API'
+            ]),
+            addToCart(data) {
+                this.ADD_TO_CART(data);
+            },
         },
         mounted() {
             this.GET_PRODUCTS_FROM_API()
